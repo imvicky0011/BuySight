@@ -6,7 +6,6 @@ import Stripe from "stripe";
 export const intent = async (req, res, next) => {
   //use the stripe secret key here to create a payment intent
   const stripe = new Stripe(process.env.STRIPE);
-  console.log(process.env.STRIPE)
   const gig = await Gig.findById(req.params.id);
 
   const paymentIntent = await stripe.paymentIntents.create({
